@@ -1,0 +1,37 @@
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+} */
+
+/* not sure about this part */
+html, body, 
+ {
+  height: 100%;
+  margin: 10px;
+  padding: 10px;
+}
+
+body {
+  font-size: 14px;
+  font-family: Verdana, sans-serif;
+  background-color: #cdfdb3;
+}
+
+header {
+  font-size: 48px;
+  font-family: Georgia, serif;
+  color: #940462;
+  text-align: center;
+
+}
+
+h1 {
+    font-size: 18px;
+    color: #266703;
+}
+
+.questions {
+    
+}
+
