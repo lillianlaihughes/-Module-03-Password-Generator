@@ -2,8 +2,8 @@ var scoreboard = document.getElementById("scoreboard")
 var countdown = document.getElementById("countdown")
 
 var startButton = document.getElementById("start-button")
-
-var questionEl = document.getElementById("question-el");
+var quizContainer = document.getElementById("quiz-container")
+var questionEl = document.getElementById("question-el")
 var choiceA = document.getElementById("choice-a")
 var choiceB = document.getElementById("choice-b")
 var choiceC = document.getElementById("choice-c")
@@ -14,9 +14,10 @@ var resultEl = document.getElementById("result-el")
 
 var userChoice = document.getElementsByClassName("user-choice")
 
-var currentQ = 0;
+// var currentQ = 0;
 
 // var answerStorage ???
+
 
 // Q and A array, with question, answers (another array) and correctAnswer
 var myQuestions = [
@@ -28,8 +29,8 @@ var myQuestions = [
       c: "Andres J.", correctAnswer: false,
       d: "Saurav K.", correctAnswer: true,
       e: "Morgan R.", correctAnswer: false
-   },
-		// correctAnswer: "d"
+      }
+		// , correctAnswer: "d"
 	},
 	{
 		question: "We also have a Student Success Manager for our cohort. Who is it?",
@@ -39,108 +40,118 @@ var myQuestions = [
       c: "CJ McKenney", correctAnswer: false,
       d: "Dominique Meeks Gombe", correctAnswer: false,
       e: "Jesse Pacheco", correctAnswer: true
-		},
-		// correctAnswer: "e"
+		}
+		// , correctAnswer: "e"
 	},
   {
 		question: "Commonly used data types do NOT include one of these items. Which is the odd one out?",
 		answers: {
-      a: "Alerts",
-      b: "Arrays",
-      c: "Booleans",
-      d: "Numbers",
-      e: "Strings"
-		},
-		correctAnswer: "a"
+      a: "Alerts", correctAnswer: true,
+      b: "Arrays", correctAnswer: false,
+      c: "Booleans", correctAnswer: false,
+      d: "Numbers", correctAnswer: false,
+      e: "Strings", correctAnswer: false
+		}
+		// , correctAnswer: "a"
 	},
   {
 		question: "The condition in an if/else statement is enclosed in a pair of these:",
 		answers: {
-      a: "Curly braces",
-      b: "Exclamation points",
-      c: "Forward slashes",
-      d: "Parentheses",
-      e: "Square brackets"
-		},
-		correctAnswer: "d"
+      a: "Curly braces", correctAnswer: false,
+      b: "Exclamation points", correctAnswer: false,
+      c: "Forward slashes", correctAnswer: false,
+      d: "Parentheses", correctAnswer: true,
+      e: "Square brackets", correctAnswer: false
+	   }
+      // , correctAnswer: "d"
 	},
   {
 		question: "A useful tool used during development for printing content to the debugger is:",
 		answers: {
-      a: "console.log",
-      b: "for loops",
-      c: "JavaScript",
-      d: "terminal/bash",
-      e: "YouTube"
-		},
-		correctAnswer: "a"
+      a: "console.log", correctAnswer: true,
+      b: "for loops", correctAnswer: false,
+      c: "JavaScript", correctAnswer: false,
+      d: "terminal/bash", correctAnswer: false,
+      e: "YouTube", correctAnswer: false,
+		}
+		// , correctAnswer: "a"
 	},
   {
 		question: "Arrays in JavaScript can be used to store which of these data types:",
 		answers: {
-      a: "Booleans",
-      b: "Numbers",
-      c: "Strings",
-      d: "Other arrays",
-      e: "All of the above"
-		},
-		correctAnswer: "e"
+      a: "Booleans", correctAnswer: false,
+      b: "Numbers", correctAnswer: false,
+      c: "Strings", correctAnswer: false,
+      d: "Other arrays", correctAnswer: false,
+      e: "All of the above", correctAnswer: true
+		}
+		// , correctAnswer: "e"
 	},
   {
 		question: "When string values are assigned to variables, they must be enclosed within:",
 		answers: {
-      a: "Commas",
-      b: "Curly braces",
-      c: "Forward slashes",
-      d: "Parentheses",
-      e: "Quotation marks"
-		},
-		correctAnswer: "e"
+      a: "Commas", correctAnswer: false,
+      b: "Curly braces", correctAnswer: false,
+      c: "Forward slashes", correctAnswer: false,
+      d: "Parentheses", correctAnswer: false,
+      e: "Quotation marks", correctAnswer: true
+		}
+		// , correctAnswer: "e"
 	},
   {
 		question: "In the context of this bootcamp, what does API stand for?",
 		answers: {
-      a: "Aches Pains Injuries",
-      b: "Apple Powered Internet",
-      c: "Application Programming Interface",
-      d: "Anxiety Pressure Insecurity",
-      e: "Atlanta People Incredible"
-		},
-		correctAnswer: "c"
+      a: "Aches Pains Injuries", correctAnswer: false,
+      b: "Apple Powered Internet", correctAnswer: false,
+      c: "Application Programming Interface", correctAnswer: true,
+      d: "Anxiety Pressure Insecurity", correctAnswer: false,
+      e: "Atlanta People Incredible", correctAnswer: false
+		}
+		// , correctAnswer: "c"
 	},
 ];
 // console.log(myQuestions)
 
-startButton.addEventListener("click", renderQuiz());
-function renderQuiz() {
-  startButton.style.display = "none";
-  if (currentQ < myQuestions.length) {
+//hides the question sections before quiz starts
+// quizContainer.style.display = "none";
+startButton.addEventListener("click", function() {
+   startButton.style.display = "none";
+   quizContainer.style.display = "block";
+   showQuestion()
+});
+
+function showQuestion() {
+   for (var currentQ = 0; currentQ < myQuestions.length; currentQ++) {
     questionEl.textContent = myQuestions[currentQ].question;
-    // questionEl.textContent = myQuestions[currentQ].answers;
     choiceA.textContent = myQuestions[currentQ].answers.a;
     choiceB.textContent = myQuestions[currentQ].answers.b;
     choiceC.textContent = myQuestions[currentQ].answers.c;
     choiceD.textContent = myQuestions[currentQ].answers.d;
-    choiceE.textContent = myQuestions[currentQ].answers.e;
-   //  currentQ++;   
-  } else {
+    choiceE.textContent = myQuestions[currentQ].answers.e;  
     return;
   }
-  }
+}
 
-// // function to check answer check answer
-// // deduct time if applicable
-// // and display next question or final score page
-userChoice.addEventListener("click", checkAnswer());
+
+// function to check answer check answer
+// deduct time if applicable
+// and display next question or final score page
+choiceA.addEventListener("click", checkAnswer());
+choiceB.addEventListener("click", checkAnswer());
+choiceC.addEventListener("click", checkAnswer());
+choiceD.addEventListener("click", checkAnswer());
+choiceE.addEventListener("click", checkAnswer());
 
 function checkAnswer() {
-   if (myQuestions[currentQ].correctAnswer = false) {
-      resultEl.textContent = "Sorry, that is incorrect. 10 seconds will be deducted.";
-      // INSERT TIME DEDUCTION HERE
-   } else {
-      resultEl.textContent = "That is correct! Keep studying though.";
-      currentQ++;
-      renderQuiz();
-   }
+   console.log("a button was clicked")
+//    for (var currentQ = 0; currentQ < myQuestions.length; currentQ++) {
+//    if (myQuestions[currentQ].answers.correctAnswer = false) {
+//       resultEl.textContent = "Sorry, that is incorrect. 10 seconds will be deducted.";
+//       // INSERT TIME DEDUCTION HERE
+//    } else {
+//       resultEl.textContent = "That is correct! Keep studying though.";
+//       currentQ++;
+//       showQuestion();
+//    }
+// }
 };
-console.log(myQuestions[currentQ].correctAnswer = false)

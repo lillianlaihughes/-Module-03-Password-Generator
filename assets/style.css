@@ -4,7 +4,6 @@
   box-sizing: border-box;
 } */
 
-/* not sure about this part */
 html, body
  {
   height: 100%;
@@ -32,7 +31,8 @@ h1 {
 }
 
 #quizContainer {
-  padding: 15px 30px;
+  display: "block";
+  padding: 5px 30px;
   margin: 5px;
   border: 5px solid white;
   border-radius: 15px;
@@ -47,8 +47,4 @@ button {
   border: none;
   border-radius: 5px;
 }
-
-/* .hide {
-    display: none;
-} */
 
