@@ -9,90 +9,31 @@
   </head>
   <body>
     <header>Lillian's Coding Quiz</header>
-    <p>
-      Have you been paying attention in class? Have you been studying
-      diligently? Test your coding knowledge and prove your mettle!
-
-      <h3 id="countdown">this is the countdown part</h3>
-      <p id="main">this is the id labeled "main"</p>
-
+    <p id="intro">
+      Have you been paying attention in class? Have you been studying diligently? Test your coding knowledge and prove your mettle! This is a timed quiz, and ten seconds be
+      deducted for incorrect answer.
+      <br>      
+      <button id="scoreboard">SCOREBOARD</button>
+      <div id="countdown">Countdown: 00:00</div>
+      <div id="main">this is the id labeled "main"</div>
+      <div>Need to insert a link to High Scores...</div>
     </p>
-  <section class="questions">
-    <h1>We have several Teaching Assistants in our cohort. Who is not a TA?</h1>
-    <ul>
-      <li>Constan F.</li>
-      <li>Andres I.</li>
-      <li>Andres J.</li>
-      <li>Saurav K.</li>
-      <li>Morgan R.</li>
-    </ul>
-    <h1>We also have a Student Success Manager for our cohort. Who is it?</h1>
-    <ul>
-      <li>Stephanie Gulden</li>
-      <li>Saurav Khatiwada</li>
-      <li>CJ McKenney</li>
-      <li>Jesse Pacheco</li>
-    </ul>
-    <h1>
-      Commonly used data types do NOT include one of these items. Which is the
-      odd one out?
-    </h1>
-    <ul>
-      <li>Alerts</li>
-      <li>Booleans</li>
-      <li>Numbers</li>
-      <li>Strings</li>
-    </ul>
-    <h1>
-      The condition in an if/else statement is enclosed in a pair of these:
-    </h1>
-    <ul>
-      <!-- <li>Quotation marks</li> -->
-      <li>Curly braces</li>
-      <li>Forward slashes</li>
-      <li>Parentheses</li>
-      <li>Square brackets</li>
-    </ul>
-    <h1>
-      A useful tool used during development for printing content to the debugger
-      is:
-    </h1>
-    <ul>
-      <li>JavaScript</li>
-      <li>terminal/bash</li>
-      <li>for loops</li>
-      <li>console.log</li>
-    </ul>
-    <h1>
-      Arrays in JavaScript can be used to store which of these data types:
-    </h1>
-    <ul>
-      <li>Booleans</li>
-      <li>Numbers</li>
-      <li>Strings</li>
-      <li>Other arrays</li>
-      <li>All of the above</li>
-    </ul>
-    <h1>
-      When string values are assigned to variables, they must be enclosed
-      within:
-    </h1>
-    <ul>
-      <li>Commas</li>
-      <li>Curly braces</li>
-      <li>Forward slashes</li>
-      <li>Parentheses</li>
-      <li>Quotation marks</li>
-    </ul>
-    <h1>In the context of this bootcamp, what does API stand for?</h1>
-    <ul>
-      <li>Apple Powered Internet</li>
-      <li>Aches Pressure Insecure</li>
-      <li>Atlanta People Incredible</li>
-      <li>Application Programming Interface</li>
-    </ul>
-  </section>
-    <script src="./assets/js/script.js"></script>
+
+    <button id="start-button">START THE QUIZ</button>
+
+    <section id="quizContainer">
+      <section id="question-el"></section>
+<!-- <ul> -->
+  <p><button class="user-choice" id="choice-a"></button></p>
+  <p><button class="user-choice" id="choice-b"></button></p>
+  <p><button class="user-choice" id="choice-c"></button></p>
+  <p><button class="user-choice" id="choice-d"></button></p>
+  <p><button class="user-choice" id="choice-e"></button></p>
+<!-- </ul> -->
+<section id="result-el"></section>
+
+</section>    
+    <script src="./assets/script.js"></script>
   </body>
  
 </html>
